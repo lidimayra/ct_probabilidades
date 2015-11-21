@@ -1,0 +1,93 @@
+{% extends 'prob/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Probabilidade{% endblock %}
+
+{% block body_block %}
+
+<div class="page-header"><h1>Probabilidade</h1></div>
+
+<div class="row">
+    O dono de uma sorveteria afirmou que a cada 5 sorvetes vendidos, 3 são
+    de chocolate. Dadas estas informações, insira nos campos abaixo os
+    resultados pedidos.
+</div>
+<br/>
+
+
+<div class="row">
+    <div class="col-md-6">        
+        <form class="form-inline">
+            <p>Calcule em porcentagem, a probabilidade de:</p>
+            <table>
+                <tr>
+                    <td class="col-enunciado">
+                        Não vender sorvetes de chocolate
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="P(0) = ?">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-enunciado">
+                        Vender um sorvete de chocolate
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="P(1) = ?">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-enunciado">
+                        Vender dois sorvetes de chocolate
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="P(2) = ?">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-enunciado">
+                        Vender três sorvetes de chocolate
+                    </td>
+                    <td class="col-enunciado">
+                        <input type="text" class="form-control" placeholder="P(3) = ?">
+                    </td>
+                <tr>
+                    <td class="col-enunciado">
+                        Vender quatro sorvetes de chocolate
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="P(4) = ?">
+                    </td class="col-enunciado">
+                </tr>
+                    <td class="col-enunciado">
+                        Vender cinco sorvetes de chocolate
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="P(5) = ?">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br/><br/>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Probabilidade acumulada:
+            </div>
+            <div class="panel-body text-center">
+                <h3><strong> 8,7 %</strong></h3>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4 text-center">
+        <p><img id="graf_construcao" src="{% url 'graf_construcao' %}" width="100%"></p>
+            
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block next_block %} {% url 'posicao_central' %} {% endblock %}

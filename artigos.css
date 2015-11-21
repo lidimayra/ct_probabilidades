@@ -1,0 +1,14 @@
+.quadrado {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 20px;
+}
+
+#vermelho {
+    background-color: #FF6347;
+}
+
+#verde {
+    background-color: #32CD32;
+}

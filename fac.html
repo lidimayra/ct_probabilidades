@@ -1,0 +1,68 @@
+{% extends 'activities/base.html' %}
+
+{% block title %}Agrupamento Discreto{% endblock %}
+
+{% block body_block %}
+    <div class="page-header"><h1>Agrupamento Discreto</h1></div>   
+    <div class="row">    
+        <div class="well text-justify">
+            <p>A <strong>Frequência Acumulada (Fac)</strong> é o total
+             acumulado de todos os valores anteriores até o momento.</p>
+
+            <p>Para calcular a Fac, deve-se somar a Frequência Individual
+             atual à Frequência Acumulada Anterior.</p>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="list-group">
+                <table class="table table-striped table-bordered">
+                <tr><th>xi</th><th>fi</th><th>Fac</th></tr>
+                {% for valor in lista %}           
+                <tr>
+                    <td>{{ valor.0 }}</td>            
+                    <td>{{ valor.1 }}</td>                
+                    <td {% if not acerto %}id="fac{{ forloop.counter }}"{% endif %}>
+                        {% if forloop.counter < 6 or acerto %}
+                        <span data-toggle="tooltip" 
+                            data-placement="right" title="{{valor.2}}">
+                        {% else %}
+                        <span data-toggle="tooltip" 
+                            data-placement="right" title="{{valor.1}} + ?">
+                        {% endif %}
+                            <strong class="text-primary">{{ valor.3 }}</strong>
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+                </table>
+                </div>
+            </div>
+        <div class="col-md-6 text-justify">
+            {% if acerto %}
+                <p class="alert alert-warning">
+                    Ao listar todos os dados, a última linha da nossa
+                    Frequência Acumulada deve resultar no número total de
+                    observações realizadas. Por isso a última Fac sempre será
+                    igual ao valor do nosso <b>universo amostral.
+                </p>
+
+            {% else %}
+
+                <p>Passe o mouse sobre os valores de cada Fac para verificar o cálculo realizado.</p>
+                <p>A quinta linha da nossa tabela está faltando. Preencha
+                   o valor correspondente no campo abaixo.</p>
+                <div class="col-md-6">
+                    <form id="fac" method='post'>
+                    {% csrf_token %}
+                    <p>{{ form.fac }}</p>
+                    <button id="fac" class="btn btn-primary" type="submit" name="submit">OK!</button>
+                    </form>
+                </div>
+
+            {% endif %}
+        </div>
+</div>
+
+{% endblock %}
+{% block next_block %} {% url 'facr' %} {% endblock %}

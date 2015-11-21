@@ -1,0 +1,56 @@
+{% extends 'activities/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Agrupamento Discreto{% endblock %}
+
+{% block body_block %}
+
+    <div class="page-header"><h1>Probabilidade</h1></div>
+    
+    <div class="row">
+        <div class="well text-justify">
+            <p>Para entender o conceito de Probabilidades, vamos utilizar os dados</p>
+            <p>
+                Ao clicar em cada uma das figuras, o sistema irá simular 3000
+                jogadas. O resultado será apresentado no respectivo gráfico.
+            </p>
+        </div>
+    </div>
+    
+    <div class="row">
+            <div class="col-md-4 text-center">          
+                <p><button id="um_dado" type="button" class="btn btn-link">
+                    <img id="img_dado" src="{% static 'images/dado.png' %}" width="40%">
+                </button></p>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <button id="dois_dados" type="button" class="btn btn-link">
+                    <img id="img_dados" src="{% static 'images/dados.png' %}" width="60%">
+                </button>
+            </div>
+    </div>
+
+    <div class="row">
+            <div class="col-md-4 text-center"> 
+                <p><img id="grafico1" src="{% url 'graf_um_dado' %}" width="100%"></p>
+            </div>
+            <div class="col-md-4 text-center">   
+                <p><img id="grafico2" src="{% url 'graf_dois_dados' %}" width="100%"></p>
+            </div>
+            <div class="col-md-4 text-center">
+                <p id="mensagem" class="hidden">
+                    Perceba a diferença entre o formato dos gráficos.
+                    Por que você acha que isso acontece?
+                <br>
+                <br>
+                    Jogue os dados mais algumas vezes.
+                    Quais valores ocorrem com maior frequência?                    
+                </p>
+            </div>
+    </div>    
+    </div>
+
+{% endblock %}
+
+{% block next_block %} {% url 'posicao_central' %} {% endblock %}

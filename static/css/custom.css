@@ -1,0 +1,60 @@
+#btnProximo {
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.questoes {
+    vertical-align: middle;
+    width: 135px;
+    height: 130px;  
+    border-radius: 10%;
+    font-weight: bold;
+    background-color: lightblue;
+    text-align: center;
+    color: navy;
+    display: inline-block;
+    margin-right: 25px;
+    box-shadow: 
+        inset 0 0 0 6px rgba(255,255,255,0.6),
+        0 1px 2px rgba(0,0,0,0.1);
+    transition: all 0.4s ease-in-out;
+}
+
+.questoes:hover {
+    background: lightgray;
+    box-shadow: 
+        inset 0 0 0 1px rgba(255,255,255,0.1),
+        0 1px 2px rgba(0,0,0,0.1);
+}
+
+#questao1 {
+    padding: 1.5em;
+}
+
+#questao2 {
+    padding: 1.1em;
+}
+
+#questao3 {
+    padding: 0.7em;
+}
+
+#questao4 {
+    padding: 0.5em;
+}
+
+.resposta {
+    padding: 0.5em;
+    margin-top: 30px;
+    border: 0px solid gray;
+    text-align: center;
+    background-color: #DCDCDC;
+}
+
+tr {
+    height: 40px;
+}
+
+.col-enunciado {
+    width: 300px;
+}
